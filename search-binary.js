@@ -2,6 +2,7 @@
 * @author: Chisimdi Damian Ezeanieto
 * @date: 24/01/2019
 */
+// This works best on a sorted array.
 function binarySearch(arr, item) {
     arr = arr.sort((a,b) => a-b);
     let left = 0;
@@ -12,11 +13,7 @@ function binarySearch(arr, item) {
         middle = Math.floor((left + right) / 2);
     }
 
-    if (arr[middle] === item) {
-        return middle;
-    } {
-        return -1;
-    }
+    return arr[middle] === item ? middle : -1;
 }
 
 console.log(binarySearch([2,5,6,7,8,23,45,87,100,86,37], 46));
