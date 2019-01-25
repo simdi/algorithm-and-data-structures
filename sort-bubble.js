@@ -4,6 +4,8 @@
 */
 
 // Bubble sort
+// Time complexity is O(n^2);
+
 // Naive solution
 // const bubbleSort = (arr) => {
 //     for (let i = 0; i < arr.length; i++) {
