@@ -26,6 +26,7 @@ const bubbleSort = (arr) => {
                 [arr[j],arr[j+1]] = [arr[j+1],arr[j]];
             }
         }
+        console.log('One pass complete');
     }
     return arr;
 };
