@@ -89,16 +89,31 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+
+    // Get a node based off of it's index.
+    get(index) {
+        // Edge case: If index is less than zero or index is greater than the length of the list, return null.
+        if (this.length < 0 || index >= this.length) return null;
+
+        let count = 0;
+        let current = this.head;
+        while(count !== index) {
+            current = current.next;
+            count++;
+        }
+        return current;
+    }
 }
 
 let list = new SinglyLinkedList();
 list.push(3);
 list.push(10);
 list.push(11);
-list.pop();
-console.log('List', list);
-list.shift();
-list.shift();
+// list.pop();
+// console.log('List', list);
+// list.shift();
+// list.shift();
 list.push(20);
 list.unshift(19);
+console.log('Found', list.get(2));
 console.log('New list', list);
