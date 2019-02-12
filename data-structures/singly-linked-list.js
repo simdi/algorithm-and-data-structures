@@ -143,6 +143,21 @@ class SinglyLinkedList {
         this.length--;
         return true;
     }
+
+    // Reverse the linked list.
+    reverse() {
+        let current = this.head;
+        [this.head, this.tail] = [this.tail, this.head];
+        let next = null;
+        let prev = null;
+        for (let i = 0; i < this.length; i++) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return this;
+    }
 }
 
 let list = new SinglyLinkedList();
@@ -150,7 +165,7 @@ list.push(3);
 list.push(10);
 list.push(11);
 list.push(20);
-list.remove(1);
+list.reverse();
 console.log('New list', list);
 // 3 -> 4 -> 5 -> 9
     //     c
