@@ -103,17 +103,40 @@ class SinglyLinkedList {
         }
         return current;
     }
+
+    // Update a node with the value passed.
+    set(index, val) {
+        let found = this.get(index);
+        if (found) {
+            found.val = val;
+            return true;
+        }
+        return false;
+    }
+
+    // insert a node with the index passed to the current val.
+    insert(index, val) {
+        // Edge case: if index is less than zero or index is greater the length of the list, return undefined;
+        if (this.length < 0 || index > this.length) return false;
+        if (this.length === 0) return !!this.unshift(val);
+        if (this.length === index) return !!this.push(val);
+        const node = new Node(val);
+        let prevNode = this.get(index - 1);
+        let temp = prevNode.next;
+        prevNode.next = node;
+        node.next = temp;
+        this.length++;
+        return true;
+    }
 }
 
 let list = new SinglyLinkedList();
 list.push(3);
 list.push(10);
 list.push(11);
-// list.pop();
-// console.log('List', list);
-// list.shift();
-// list.shift();
 list.push(20);
-list.unshift(19);
-console.log('Found', list.get(2));
+list.insert(4, 19);
 console.log('New list', list);
+// 3 -> 4 -> 5 -> 9
+    //     c
+    // p -> new ->c
