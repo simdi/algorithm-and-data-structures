@@ -26,6 +26,7 @@ class SinglyLinkedList {
         this.length = 0;
     }
 
+    // Add to the list.
     push(val) {
         const node = new Node(val);
         // Edge case: if there is no head on the list, set the head and the tail to the new value.
@@ -40,6 +41,7 @@ class SinglyLinkedList {
         return this;
     }
 
+    // Remove the last node in the list.
     pop() {
         // Edge case: If there are no nodes in the list, return undefined
         if (this.length === 0) return undefined;
@@ -60,6 +62,7 @@ class SinglyLinkedList {
         return currNode;
     }
 
+    // Remove the first node in the list.
     shift() {
         // Edge case: If there are no nodes in the list, return undefined
         if (this.length === 0) return undefined;
@@ -71,6 +74,21 @@ class SinglyLinkedList {
         }
         return currHead;
     }
+
+    // Add a new node to the beginning of the list.
+    unshift(val) {
+        const node = new Node(val);
+        // Edge case: If there are no nodes in the list, make the head and the tail to be the new node.
+        if (this.length === 0) {
+            this.head = node;
+            this.tail = node;
+        } else {
+            node.next = this.head;
+            this.head = node;
+        }
+        this.length++;
+        return this;
+    }
 }
 
 let list = new SinglyLinkedList();
@@ -81,4 +99,6 @@ list.pop();
 console.log('List', list);
 list.shift();
 list.shift();
+list.push(20);
+list.unshift(19);
 console.log('New list', list);
