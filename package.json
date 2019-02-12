@@ -1,0 +1,23 @@
+{
+  "name": "algo-and-data-structures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simdi/algorithm-and-data-structures.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simdi/algorithm-and-data-structures/issues"
+  },
+  "homepage": "https://github.com/simdi/algorithm-and-data-structures#readme",
+  "dependencies": {
+    "jest": "^24.1.0"
+  }
+}
