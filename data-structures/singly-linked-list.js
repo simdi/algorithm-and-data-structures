@@ -148,7 +148,7 @@ class SinglyLinkedList {
     reverse() {
         let current = this.head;
         [this.head, this.tail] = [this.tail, this.head];
-        let next = null;
+        let next;
         let prev = null;
         for (let i = 0; i < this.length; i++) {
             next = current.next;
