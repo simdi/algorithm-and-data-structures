@@ -53,7 +53,23 @@ class SinglyLinkedList {
         this.tail = newTail;
         this.tail.next = null;
         this.length--;
+        if(this.length === 0){
+            this.head = null;
+            this.tail = null;
+        }
         return currNode;
+    }
+
+    shift() {
+        // Edge case: If there are no nodes in the list, return undefined
+        if (this.length === 0) return undefined;
+        let currHead = this.head;
+        this.head = currHead.next;
+        this.length--;
+        if (this.length === 0) {
+            this.tail = null;
+        }
+        return currHead;
     }
 }
 
@@ -62,4 +78,7 @@ list.push(3);
 list.push(10);
 list.push(11);
 list.pop();
-console.log(list);
+console.log('List', list);
+list.shift();
+list.shift();
+console.log('New list', list);
