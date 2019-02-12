@@ -120,12 +120,27 @@ class SinglyLinkedList {
         if (this.length < 0 || index > this.length) return false;
         if (this.length === 0) return !!this.unshift(val);
         if (this.length === index) return !!this.push(val);
+        
         const node = new Node(val);
         let prevNode = this.get(index - 1);
         let temp = prevNode.next;
         prevNode.next = node;
         node.next = temp;
         this.length++;
+        return true;
+    }
+
+    // remove a node with the index passed.
+    remove(index) {
+        // Edge case: if index is less than zero or index is greater the length of the list, return undefined;
+        if (this.length < 0 || index >= this.length) return false;
+        if (this.length === 0) return !!this.shift(val);
+        if (this.length === index) return !!this.pop(val);
+        
+        let prevNode = this.get(index - 1);
+        const temp = currNode.next;
+        prevNode.next = temp.next;
+        this.length--;
         return true;
     }
 }
@@ -135,7 +150,7 @@ list.push(3);
 list.push(10);
 list.push(11);
 list.push(20);
-list.insert(4, 19);
+list.remove(1);
 console.log('New list', list);
 // 3 -> 4 -> 5 -> 9
     //     c
