@@ -2,19 +2,22 @@
 * @author: Chisimdi Damian Ezeanieto
 * @date: 12/02/2019
 */
-const palindrome = require('./index');
-test('Palindrome is a function', () => {
-    expect(typeof palindrome).toEqual('function');
+const reverseInt = require('./index');
+test('reverseInt is a function', () => {
+    expect(typeof reverseInt).toEqual('function');
 });
-test('Palindrome Hello to give false', () => {
-    expect(palindrome('Hello')).toEqual(false);
+test('reverseInt 15 to give 51', () => {
+    expect(reverseInt(15)).toBe(51);
 });
-test('Palindrome abba to give true', () => {
-    expect(palindrome('abba')).toEqual(true);
+test('reverseInt 981 to give 189', () => {
+    expect(reverseInt(981)).toBe(189);
 });
-test('Palindrome ababa to give true', () => {
-    expect(palindrome('ababa')).toEqual(true);
+test('reverseInt 500 to give 5', () => {
+    expect(reverseInt(500)).toBe(5);
 });
-test(`Palindrome '' to give undefined`, () => {
-    expect(palindrome('')).toEqual(undefined);
+test(`reverseInt -15 to give -51`, () => {
+    expect(reverseInt(-15)).toEqual(-51);
+});
+test(`reverseInt -90 to give -9`, () => {
+    expect(reverseInt(-90)).toEqual(-9);
 });
