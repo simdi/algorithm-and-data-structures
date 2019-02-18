@@ -24,10 +24,7 @@ const reverseInt = (int) => {
         reversedStr = char + reversedStr;
     }
 
-    if (int < 0) {
-        return parseInt(reversedStr) * -1;
-    }
-    return parseInt(reversedStr);
+    return parseInt(reversedStr) * Math.sign(int);
 };
 
 module.exports = reverseInt;
