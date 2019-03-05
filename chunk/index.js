@@ -20,6 +20,17 @@ const chunk = (arr, size) => {
     //     }
     // }
 
+    // Big (O) = N;
+    // for (let item of arr) {
+    //     const last = result[result.length - 1];
+
+    //     if (!last || last.length === size) {
+    //         result.push([item]);
+    //     } else {
+    //         last.push(item);
+    //     }
+    // }
+
     // Performant 
     // Big (O) = Log N;
     const recursion = (array) => {
