@@ -33,13 +33,21 @@ const chunk = (arr, size) => {
 
     // Performant 
     // Big (O) = Log N;
-    const recursion = (array) => {
-        // Base case
-        if (array.length === 0) return;
-        result.push(array.splice(0, size));
-        recursion(array);
+    let i = 0;
+    while (i < arr.length) {
+        result.push(arr.slice(i, i + size));
+        i += size;
     }
-    recursion(arr);
+
+    // Performant 
+    // Big (O) = Log N;
+    // const recursion = (array) => {
+    //     // Base case
+    //     if (array.length === 0) return;
+    //     result.push(array.splice(0, size));
+    //     recursion(array);
+    // }
+    // recursion(arr);
 
     return result;
 }
