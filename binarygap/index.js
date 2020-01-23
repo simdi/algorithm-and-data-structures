@@ -24,44 +24,81 @@
 function binaryGap(N) {
     // write your code in JavaScript (Node.js 8.9.4)
     if(!Number(N)) return 0;
+    /*
+    * This is not optimal
+    */
     // Convert to binary.
-    N = N.toString(2);
-    let a = N.length - 2;
-    let b = N.length - 1;
-    let arr = N.split('');
-    let spliced;
-    let isComplete = true;
-    // Remove zero from the right
-    while(isComplete) {
-        if (arr[b] === '1') {
-            spliced = arr;
-            isComplete = false;
-            break;
-        }
+    // N = N.toString(2);
+    // let a = N.length - 2;
+    // let b = N.length - 1;
+    // let arr = N.split('');
+    // let spliced;
+    // let isComplete = true;
+    // console.log('a', a, 'b', b);
+    // console.log('arr', arr);
+    // // Remove zero from the right
+    // while(isComplete) {
+    //     if (arr[b] === '1') {
+    //         spliced = arr;
+    //         isComplete = false;
+    //         break;
+    //     }
         
-        if (arr[a] !== arr[b]) {
-            // Splice array
-            spliced = arr.splice(0, b);
-            isComplete = false;
-            break;
-        }
-        a--;
-        b--;
-    }
+    //     if (arr[a] !== arr[b]) {
+    //         // Splice array
+    //         spliced = arr.splice(0, b);
+    //         isComplete = false;
+    //         break;
+    //     }
+    //     a--;
+    //     b--;
+    // }
+    // console.log('Spliced', spliced);
+    // N = spliced.join('');
     
-    N = spliced.join('');
-    
+    // let i = 0;
+    // let counter = 0;
+    // for (let j = 1; j < N.length; j++) {
+    //     if (N[i] !== N[j]) {
+    //         if ((j - i) > counter) {
+    //             counter = j - i;
+    //         }
+    //         i = j;
+    //     }
+    // }
+    // return counter;
+
+
+    /*
+    * This is optimal compared to the one above.
+    */
+    let bi = (N >>> 0).toString(2);
+    let maxGap = 0;
     let i = 0;
-    let counter = 0;
-    for (let j = 1; j < N.length; j++) {
-        if (N[i] !== N[j]) {
-            if ((j - i) > counter) {
-                counter = j - i;
-            }
-            i = j;
-        }
+    let j = 1;
+    console.log('Binary', bi);
+    // Use sliding window.
+    // Keep an index of i and j.
+    // Loop through the string,
+    while(j <= bi.length) {
+      if (bi[j] == 1 && 1 ==  bi[i]) {
+        console.log(i, j);
+        let tempMax = (j - i) - 1;
+        maxGap = Math.max(tempMax, maxGap);
+        console.log('Temp', maxGap);
+        i = j;
+        j++;
+      } else if (bi[i] == 1 && bi[j] == 0) {
+        j++;
+      } else {
+        i++;
+        j++;
+      }
     }
-    return counter;
+    // when you encounter a zero, start counting until you reach a one
+    // reset the maxGap to the current if current is greater
+    // return maxGap
+    return maxGap;
 };
 
 module.exports = binaryGap;
