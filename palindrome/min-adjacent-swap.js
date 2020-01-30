@@ -3,57 +3,77 @@
 * @date: 29/01/2020
 */
 
-const isPalindrome = (str) => {
-  const reversedStr = str.split('').reverse().join('');
-  console.log('Resversed', reversedStr);
-  if (str === reversedStr) {
-    return true;
-  }
-  return false;
+const isPalindrome = (arr) => {
+  // const reversedArr = arr.reverse();
+  // console.log('Resversed', reversedArr);
+  // if (arr === reversedArr) {
+  //   return true;
+  // }
+  return arr.every((char, i) => char === arr[arr.length - i - 1]);
 }
 
 const minAdjacentSwap = (str) => {
   // Edge case: if the length of a string passed is equal to Zero, return undefined;
   if (str.length === 0) return -1;
+  let arr = str.split('');
   let count = 0;
   let i = 0;
-  let j = str.length-1;
+  let j = arr.length-1;
   let k;
   let done = true;
 
-  const isPal = isPalindrome(str);
+  const isPal = isPalindrome(arr);
   console.log('IsPal', isPal);
-  while(done) {
-    if (isPalindrome(str)) {
+  while(i < j) {
+    if (isPalindrome(arr)) {
       done = false;
     }
-    const first = str[i];
-    const substr = str.indexOf(first, i+1);
-    // Start swapping from where is find the element.
-    if (substr > -1) {
-      if (i == j) {
-        done = false;
-      }
-      // start swap
-      k = substr;
-      [str[k], str[k+1]] = [str[k+1], str[k]];
-      count++;
-      if (isPalindrome(str)) {
-        done = false;
-      }
-    } else {
-      // Start swapping from the beginning
-      [str[i], str[i+1]] = [str[i+1], str[i]];
-      count++;
+    // Check if the first and last item are equal,
+    // then, move i forward and j backward.
+    console.log(i, j);
+    console.log(arr[i], arr[j]);
+    if (arr[i] === arr[j]) {
       i++;
-      console.log('Str', str);
-      // check if string is palindrome
-      // const reversedStr = str.split('').reverse().join('');
-      // console.log('Resversed', reversedStr);
-      if (isPalindrome(str)) {
-        done = false;
-      }
+      j--;
     }
+    console.log('two', i, j);
+    console.log('two', arr[i], arr[j]);
+    const first = arr[i];
+    const subarr = arr.indexOf(first, i+1);
+    console.log('arr', arr);
+    console.log('First', first, subarr);
+    // Start swapping from where is find the element.
+    // if (subarr > -1) {
+    //   if (i === j) {
+    //     done = false;
+    //   }
+    //   // start swap
+    //   k = subarr;
+    //   [arr[k], arr[k+1]] = [arr[k+1], arr[k]];
+    //   count++;
+    //   if (isPalindrome(arr)) {
+    //     done = false;
+    //   }
+    //   console.log('after arr', arr);
+    // } else {
+    //   // Start swapping from the beginning
+    //   [arr[i], arr[i+1]] = [arr[i+1], arr[i]];
+    //   count++;
+    //   i++;
+    //   console.log('arr', arr);
+    //   // check if array is palindrome
+    //   if (isPalindrome(arr)) {
+    //     done = false;
+    //   }
+    // }
+
+    
+    // if (i === j) {
+    //   done = false;
+    // }
+    // i++;
+    i++;
+    j--;
   }
 
   return count;
