@@ -14,7 +14,7 @@
  *  '####'
  */
 
-const steps = (N) => {
+const steps = (N, row = 0, stair = '') => {
   let i = 0;
   let j = 1;
   let result = '';
@@ -36,15 +36,30 @@ const steps = (N) => {
   //   i++;
   // }
 
-  while(i < N) {
-    let stair = '';
-    stair += '#'.repeat(i+1);
-    stair += ' '.repeat(N-i-1);
-    stair += '';
-    result += stair;
-    i++;
-  }
-  return result;
+  // O(N)
+  // while(i < N) {
+  //   let stair = '';
+  //   stair += '#'.repeat(i+1);
+  //   stair += ' '.repeat(N-i-1);
+  //   stair += '';
+  //   result += stair;
+  //   i++;
+  // }
+
+  // Try using recursion
+  // if (N === row) return result;
+  // if (stair.length === N) {
+  //   result += stair;
+  //   return steps(N, row + 1);
+  // }
+
+  // if (stair.length <= row) {
+  //   stair += '#';
+  // } else {
+  //   stair += ' ';
+  // }
+
+  // steps(N, row, stair);
 } 
 
 module.exports = steps;
