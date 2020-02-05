@@ -2,16 +2,16 @@
 * @author: Chisimdi Damian Ezeanieto
 * @date: 05/02/2020
 */
-const lexicalSmallestString = require('./index');
-test('lexicalSmallestString is a function', () => {
-  expect(typeof lexicalSmallestString).toEqual('function');
+const lexicographicallySmallestString = require('./index');
+test('lexicographicallySmallestString is a function', () => {
+  expect(typeof lexicographicallySmallestString).toEqual('function');
 });
-test('lexicalSmallestString "abczd" to give abcd', () => {
-  expect(lexicalSmallestString("abczd")).toEqual('abcd');
+test('lexicographicallySmallestString "abczd" to give abcd', () => {
+  expect(lexicographicallySmallestString("abczd")).toEqual('abcd');
 });
-test('lexicalSmallestString "klmoyp" to give klmop', () => {
-  expect(lexicalSmallestString("klmoyp")).toEqual("klmop");
+test('lexicographicallySmallestString "klmoyp" to give klmop', () => {
+  expect(lexicographicallySmallestString("klmoyp")).toEqual("klmop");
 });
-test('lexicalSmallestString "fghixj" to give "fghij"', () => {
-  expect(lexicalSmallestString("fghixj")).toEqual("fghij");
+test('lexicographicallySmallestString "fghixj" to give "fghij"', () => {
+  expect(lexicographicallySmallestString("fghixj")).toEqual("fghij");
 });
