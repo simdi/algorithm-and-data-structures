@@ -30,14 +30,10 @@ const minAdjacentSwap = (str) => {
     }
     // Check if the first and last item are equal,
     // then, move i forward and j backward.
-    console.log(i, j);
-    console.log(arr[i], arr[j]);
     if (arr[i] === arr[j]) {
       i++;
       j--;
     }
-    console.log('two', i, j);
-    console.log('two', arr[i], arr[j]);
     const first = arr[i];
     const subarr = arr.indexOf(first, i+1);
     console.log('arr', arr);
