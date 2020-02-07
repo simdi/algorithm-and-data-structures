@@ -36,8 +36,6 @@ const minAdjacentSwap = (str) => {
     }
     const first = arr[i];
     const subarr = arr.indexOf(first, i+1);
-    console.log('arr', arr);
-    console.log('First', first, subarr);
     // Start swapping from where is find the element.
     // if (subarr > -1) {
     //   if (i === j) {
