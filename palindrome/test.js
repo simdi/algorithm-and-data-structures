@@ -20,18 +20,18 @@ test(`Palindrome '' to give undefined`, () => {
   expect(palindrome('')).toEqual(undefined);
 });
 
-test('minAdjacentSwap is a function', () => {
-  expect(typeof minAdjacentSwap).toEqual('function');
-});
-test('minAdjacentSwap mamad to give 3', () => {
-  expect(minAdjacentSwap('mamad')).toEqual(3);
-});
-test('minAdjacentSwap asflkj to give -1', () => {
-  expect(minAdjacentSwap('asflkj')).toEqual(-1);
-});
-test('minAdjacentSwap aabb to give 2', () => {
-  expect(minAdjacentSwap('aabb')).toEqual(2);
-});
-test(`minAdjacentSwap ntiin to give 1`, () => {
-  expect(minAdjacentSwap('ntiin')).toEqual(1);
-});
+// test('minAdjacentSwap is a function', () => {
+//   expect(typeof minAdjacentSwap).toEqual('function');
+// });
+// test('minAdjacentSwap mamad to give 3', () => {
+//   expect(minAdjacentSwap('mamad')).toEqual(3);
+// });
+// test('minAdjacentSwap asflkj to give -1', () => {
+//   expect(minAdjacentSwap('asflkj')).toEqual(-1);
+// });
+// test('minAdjacentSwap aabb to give 2', () => {
+//   expect(minAdjacentSwap('aabb')).toEqual(2);
+// });
+// test(`minAdjacentSwap ntiin to give 1`, () => {
+//   expect(minAdjacentSwap('ntiin')).toEqual(1);
+// });

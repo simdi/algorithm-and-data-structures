@@ -41,10 +41,19 @@ const palindrome = (str) => {
     // }
     // return true;
 
-    // Naive algorithm.
     // Big(O) = log N
     // Multiple pointers pattern with every() array function
-    return str.split('').every((char, i) => char === str[str.length - i - 1]);
+    // return str.split('').every((char, i) => char === str[str.length - i - 1]);
+
+    // Big(O) = log N
+    if (str.length === 0) return false;
+    let i = 0;
+    let j = Math.floor((str.length) / 2);
+    while(i < j) {
+      if(str[j] !== str[str.length - j - 1]) return false;
+      j--;
+    }
+    return true;
 };
 
 module.exports = palindrome;
