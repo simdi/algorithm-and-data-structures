@@ -4,8 +4,8 @@
 */
 
 // Fibonacci Series
-const fibonacci = (n, cache) => {
-  // // 0 (n^2) not performant
+const fibonacci = (n, cache = { 0: 0, 1: 1, 2: 1 }) => {
+  // 0 (n^2) not performant
   // if (n < 3) {
   //   return 1;
   // } else {
@@ -25,17 +25,21 @@ const fibonacci = (n, cache) => {
   // return cache[n];
 
   // O(n) using loop and memoization
-  const mem = [];
-  mem[0] = 0;
-  mem[1] = 1;
-  mem[2] = 1;
-  let i = 3;
-  while(i <= n) {
-    mem[i] = mem[i-1] + mem[i-2];
-    i++;
-  }
+  // const mem = [];
+  // mem[0] = 0;
+  // mem[1] = 1;
+  // mem[2] = 1;
+  // let i = 3;
+  // while(i <= n) {
+  //   mem[i] = mem[i-1] + mem[i-2];
+  //   i++;
+  // }
 
-  return mem[n];
+  // return mem[n];
+
+  if(n in cache) return cache[n];
+  cache[n] = fibonacci(n - 1, cache) + fibonacci(n - 2, cache);
+  return cache[n];
 };
 
 module.exports = fibonacci;
