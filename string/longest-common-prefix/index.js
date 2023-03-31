@@ -8,7 +8,7 @@
 const longestCommonPrefix = function(strs) {
   const obj = {};
   let result = "";
-  let highestNumber = 0;
+  let highestNumber = 1;
   // Loop through each of the strings
   for (let str of strs) {
       let i = 0;
@@ -17,7 +17,7 @@ const longestCommonPrefix = function(strs) {
       while (i < str.length) {
           const subStr = str.substring(0, i+1);
           if (obj[subStr] === undefined) {
-              obj[subStr] = 0;
+              obj[subStr] = 1;
           } else {
               obj[subStr]+=1;
           }
@@ -29,7 +29,7 @@ const longestCommonPrefix = function(strs) {
   // Loop through the object and get the key with the highest number of characters found.
   if (objArr.length > 1) {
     for (let [key, val] of objArr) {
-      if (val > 0 && val >= highestNumber) {
+      if (val >= highestNumber) {
           result = key;
           highestNumber = val;
       }
