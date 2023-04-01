@@ -9,3 +9,6 @@ test('zeroSum is a function', () => {
 test('zeroSum([-4,-3,-2,1,0,2,3,5]) to give [-3,3]', () => {
   expect(zeroSum([-4,-3,-2,1,0,2,3,5])).toEqual([-3,3]);
 });
+test('zeroSum([-4,-3,-2,1,0,2,5,7]) to give []', () => {
+  expect(zeroSum([-4,-3,-2,1,0,5,5,7])).toEqual([]);
+});
