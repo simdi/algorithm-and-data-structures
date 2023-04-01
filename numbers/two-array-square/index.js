@@ -31,9 +31,6 @@ const same = (arr1, arr2) => {
   }
   
   for (let val of arr2) {
-    if (lookup[Math.sqrt(val)] === undefined) {
-      return false;
-    }
     if (!lookup[Math.sqrt(val)]) {
       return false;
     }
